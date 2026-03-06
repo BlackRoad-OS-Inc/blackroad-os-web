@@ -83,22 +83,43 @@ export default function HomePage() {
         </p>
 
         <div style={{ display: "flex", gap: 12, flexWrap: "wrap", justifyContent: "center" }}>
-          <Link href="/pricing" style={{ textDecoration: "none" }}>
-            <button style={{
-              background: GRADIENT, color: "#fff", border: "none",
-              padding: "12px 28px", borderRadius: 8, fontSize: 14, fontWeight: 600, cursor: "pointer",
-            }}>
-              Get started free
-            </button>
+          <Link
+            href="/pricing"
+            style={{
+              textDecoration: "none",
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              background: GRADIENT,
+              color: "#fff",
+              border: "none",
+              padding: "12px 28px",
+              borderRadius: 8,
+              fontSize: 14,
+              fontWeight: 600,
+              cursor: "pointer",
+            }}
+          >
+            Get started free
           </Link>
-          <Link href="/docs" style={{ textDecoration: "none" }}>
-            <button style={{
-              background: "transparent", color: "#a3a3a3",
-              border: "1px solid #262626", padding: "12px 28px", borderRadius: 8,
-              fontSize: 14, fontWeight: 600, cursor: "pointer",
-            }}>
-              Read the docs
-            </button>
+          <Link
+            href="/docs"
+            style={{
+              textDecoration: "none",
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              background: "transparent",
+              color: "#a3a3a3",
+              border: "1px solid #262626",
+              padding: "12px 28px",
+              borderRadius: 8,
+              fontSize: 14,
+              fontWeight: 600,
+              cursor: "pointer",
+            }}
+          >
+            Read the docs
           </Link>
         </div>
 
