@@ -39,7 +39,7 @@ export default function WorkspacePage() {
     }).catch(() => {});
   }, []);
 
-  const INFRA_STATS_STATIC = [
+  const INFRA_STATS = [
     { label: 'CF Workers', value: analyticsData?.workers?.total?.toString() ?? '499', sub: 'edge functions', color: '#F5A623', icon: Radio },
     { label: 'CF Zones', value: '20', sub: 'domains managed', color: '#2979FF', icon: Globe },
     { label: 'Agent Capacity', value: analyticsData?.agents?.total?.toLocaleString() ?? '30,000', sub: `${analyticsData?.fleet?.online ?? '?'}/${analyticsData?.fleet?.total ?? 4} nodes online`, color: '#FF1D6C', icon: Bot },

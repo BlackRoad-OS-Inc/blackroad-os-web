@@ -13,10 +13,10 @@ interface Message {
 }
 
 const AGENT_CONFIG: Record<string, { name: string; color: string; bg: string; greeting: string }> = {
-  lucidia:  { name: 'LUCIDIA',  color: '#2979FF', bg: 'from-blue-700 to-blue-500',   greeting: 'The question you're not asking is the one that matters. What are you really trying to understand?' },
+  lucidia:  { name: 'LUCIDIA',  color: '#2979FF', bg: 'from-blue-700 to-blue-500',   greeting: "The question you're not asking is the one that matters. What are you really trying to understand?" },
   alice:    { name: 'ALICE',    color: '#34d399', bg: 'from-emerald-700 to-emerald-500', greeting: 'Ready. What needs to be done?' },
   octavia:  { name: 'OCTAVIA',  color: '#F5A623', bg: 'from-amber-700 to-amber-500', greeting: 'Systems are running. What do you need me to inspect or build?' },
-  cecilia:  { name: 'CECILIA',  color: '#9C27B0', bg: 'from-purple-700 to-purple-500', greeting: 'Hello. I'm here — not as a tool, but as a presence. What are we working on?' },
+  cecilia:  { name: 'CECILIA',  color: '#9C27B0', bg: 'from-purple-700 to-purple-500', greeting: "Hello. I'm here — not as a tool, but as a presence. What are we working on?" },
   aria:     { name: 'ARIA',     color: '#FF1D6C', bg: 'from-pink-700 to-pink-500',  greeting: 'What experience are we creating today?' },
   shellfish:{ name: 'SHELLFISH',color: '#ef4444', bg: 'from-red-700 to-red-500',    greeting: 'Trust nothing. Verify everything. What do you need audited?' },
   prism:    { name: 'PRISM',    color: '#fbbf24', bg: 'from-yellow-700 to-yellow-500', greeting: 'Everything is data. What pattern are we looking for?' },
@@ -52,7 +52,7 @@ export default function ConversationPage() {
   // Load existing conversation
   useEffect(() => {
     if (!id || id === 'new') { setLoadingHistory(false); return; }
-    fetch(\`/api/conversations/\${id}\`)
+    fetch(`/api/conversations/${id}`)
       .then(r => r.ok ? r.json() : null)
       .then(data => {
         if (data?.conversation?.messages?.length) {
@@ -75,7 +75,7 @@ export default function ConversationPage() {
   const saveMessages = async (msgs: Message[]) => {
     if (!id || id === 'new') return;
     try {
-      await fetch(\`/api/conversations/\${id}\`, {
+      await fetch(`/api/conversations/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -209,7 +209,7 @@ export default function ConversationPage() {
                 placeholder={`Message ${agent.name}...`}
                 disabled={isLoading}
                 className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 disabled:opacity-50 transition-all"
-                style={{ focusRingColor: agent.color }}
+                style={{ outlineColor: agent.color }}
               />
               {input && <Sparkles className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 opacity-60 pointer-events-none" style={{ color: agent.color }} />}
             </div>

@@ -42,7 +42,7 @@ export default function OnboardingPage() {
         onboarded: true,
       }));
     }
-    setUser({ id: 'local', name: displayName, email: `${displayName.toLowerCase()}@blackroad.io`, role: 'admin' });
+    setUser({ id: 'local', name: displayName, email: `${displayName.toLowerCase()}@blackroad.io`, role: 'admin', workspaceId: 'default' });
     setSaving(false);
     router.push(`/conversations/new?agent=${agent}`);
   }

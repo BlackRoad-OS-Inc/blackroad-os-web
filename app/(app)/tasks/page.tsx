@@ -1,6 +1,42 @@
 "use client";
-import { useState } from "react";
-import { useTasks } from "@blackroad/sdk";
+import { useState, useEffect, useCallback } from "react";
+
+function useTasks() {
+  const [tasks, setTasks] = useState<Task[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const load = useCallback(async () => {
+    try {
+      const res = await fetch("/api/tasks");
+      if (res.ok) {
+        const data = await res.json();
+        setTasks(data.tasks || []);
+      }
+    } catch (e) {
+      setError(String(e));
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => { load(); }, [load]);
+
+  const post = async (title: string, description: string, priority: string) => {
+    await fetch("/api/tasks", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ title, description, priority }) });
+    await load();
+  };
+  const claim = async (id: string) => {
+    await fetch("/api/tasks", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id, status: "claimed" }) });
+    await load();
+  };
+  const complete = async (id: string, _result: string) => {
+    await fetch("/api/tasks", { method: "PATCH", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id, status: "completed" }) });
+    await load();
+  };
+
+  return { tasks, loading, error, post, claim, complete };
+}
 
 interface Task {
   id: string;
