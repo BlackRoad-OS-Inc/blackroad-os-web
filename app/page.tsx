@@ -31,7 +31,7 @@ export default function LandingPage() {
             <Link href="#pricing" className="text-gray-400 hover:text-white transition-colors">Pricing</Link>
             <Link href="/login" className="text-gray-400 hover:text-white transition-colors">Sign In</Link>
             <Link
-              href="/signup"
+              href="/workspace"
               className="px-5 py-2.5 bg-gradient-to-r from-hot-pink to-violet-600 hover:from-hot-pink/90 hover:to-violet-600/90 rounded-lg font-medium transition-all hover:shadow-lg hover:shadow-hot-pink/25"
             >
               Get Started
@@ -62,7 +62,7 @@ export default function LandingPage() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/signup"
+              href="/workspace"
               className="group flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-hot-pink to-violet-600 rounded-xl font-semibold text-lg transition-all hover:shadow-xl hover:shadow-hot-pink/30 hover:scale-105"
             >
               Start Building
@@ -176,7 +176,7 @@ export default function LandingPage() {
               Join the next generation of AI-powered organizations.
             </p>
             <Link
-              href="/signup"
+              href="/workspace"
               className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-hot-pink to-violet-600 rounded-xl font-semibold text-lg transition-all hover:shadow-xl hover:shadow-hot-pink/30 hover:scale-105"
             >
               Get Started Free

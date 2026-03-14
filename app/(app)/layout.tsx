@@ -14,19 +14,17 @@ export default function AppLayout({
 }) {
   const router = useRouter();
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated);
+  const login = useAuthStore((state) => state.login);
   const fetchWorkspaces = useWorkspaceStore((state) => state.fetchWorkspaces);
 
   useEffect(() => {
     if (!isAuthenticated) {
-      router.push('/login');
+      // Auto-sign in as Alexa
+      login('alexa@blackroad.io', '').then(() => fetchWorkspaces());
     } else {
       fetchWorkspaces();
     }
-  }, [isAuthenticated, router, fetchWorkspaces]);
-
-  if (!isAuthenticated) {
-    return null;
-  }
+  }, [isAuthenticated, login, router, fetchWorkspaces]);
 
   return (
     <div className="flex h-screen overflow-hidden">
