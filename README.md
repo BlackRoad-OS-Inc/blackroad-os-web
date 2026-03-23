@@ -1,3 +1,11 @@
+# blackroad-os-web
+
+> BlackRoad OS web API — FastAPI backend powering agent orchestration, compliance endpoints, and Prism Console.
+
+Part of the [BlackRoad OS](https://blackroad.io) ecosystem — [BlackRoad-OS-Inc](https://github.com/BlackRoad-OS-Inc)
+
+---
+
 # 🌌 BlackRoad OS Web
 
 **Production-grade Next.js application with 5 quantum domains** - Full-stack BlackRoad OS web platform with official brand design system.
